@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 use strict;
+use warnings FATAL => 'all';
 use warnings;
 use CGI;
 my $cgi = new CGI;
