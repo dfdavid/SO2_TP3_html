@@ -4,15 +4,15 @@ use warnings;
 use CGI;
 my $cgi = new CGI;
 
-use Cwd;
+#use Cwd;
 my $consulta = CGI->new;
 
-print $consulta->header( -charset=>'utf-8'), $consulta->start_html( -title=>'pc_info', -style=>{-src=>'style.css'}), $consulta->end_html;
+print $consulta->header( -charset=>'utf-8'), $consulta->start_html( -title=>'pc_info'), $consulta->end_html;
 
 print $consulta->h2("INFORMACION GENERAL DE HARDWARE");
 print $consulta->h3("INFORMACION DE MEMORIA:");
 
-my $mem_info = qx(cat /proc/meminfo);
+my $mem_info = qx(cat /proc/meminfo);  #funcion qx de perl
 my @lines=split /\n/, $mem_info;
 foreach my $line(@lines){
     print $consulta->b("$line <br>");

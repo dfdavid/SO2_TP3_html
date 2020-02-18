@@ -2,9 +2,10 @@
 
 #print "Content-Type: text/html\n\n";
 
+use warnings;
 use CGI;
 use strict;
-my $PROGNAME = "upload.pl";
+my $PROGNAME = "subir_modulo.pl";
 my $cgi = new CGI();
 my $upfile = $cgi->param('module');
 my $filename = GetBasename($upfile);
@@ -12,7 +13,7 @@ my $filename = GetBasename($upfile);
 no strict 'refs';
 
 if ($filename =~ m/\.ko$/){
-if (! open(OUTFILE, ">loaded_modules/$filename") ) {
+if (! open(OUTFILE, ">loaded_modules/${filename}") ) {  #https://www.tutorialspoint.com/perl/perl_files.htm
 		print "Error abriendo archivo para escritura\n";
 		exit(-1);
 	}
@@ -30,12 +31,14 @@ while ( $nBytes = read($upfile, $buffer, 1024) ) {
 }
 close(OUTFILE);
 
-system "/var/www/cgi-bin/module_wrapers/insmod /var/www/cgi-bin/loaded_modules/$filename";
+#en esta linea se invoca a traves de este script el ejecutable 'insmod' el cual tendra los permisos de root para instalar el modulo en el kernel
+system "/home/sampaxx/PhpstormProjects/untitled/cgi-bin/modulos/wrappers/insmod /home/sampaxx/PhpstormProjects/untitled/cgi-bin/loaded_modules/$filename";
 
 use strict 'refs';
-print $cgi->redirect('http://192.168.1.14/modulos.html');
+print $cgi->redirect('http://localhost/modulos.html');
+
 sub GetBasename {
-my $fullname = shift;
+my $fullname = shift; # https://perldoc.perl.org/functions/shift.html
 	my(@parts);
 	# check which way our slashes go.
 	if ( $fullname =~ /(\\)/ ) {

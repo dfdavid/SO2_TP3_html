@@ -60,13 +60,16 @@
 
     </div>
 </div>
-<FORM METHOD=POST ACTION="../cgi-bin/upload.pl" enctype="multipart/form-data">
-	Nombre del modulo:
-	<input type="file" name="module">
+
+
+
+<!--este form es que que uso para cargar un archivo y pasarselo al cgi upload.p-->
+<FORM METHOD=POST ACTION="../cgi-bin/subir_modulo.pl" enctype="multipart/form-data">Nombre del modulo:
+    <input type="file" name="module">
 	<INPUT TYPE=submit value="Submit">
 </FORM>
 
-<FORM METHOD=POST ACTION="../cgi-bin/rmmod.pl">
+<FORM METHOD=POST ACTION="../cgi-bin/remover_modulo.pl">
 	Nombre del modulo a remover:
 	<input type="text" name="module">
 	<INPUT TYPE=submit value="Submit">

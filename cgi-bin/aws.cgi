@@ -8,10 +8,10 @@ use CGI::Carp qw (fatalsToBrowser);
 use File::Basename;
 
 my $consulta = new CGI;
-my $anio= $consulta->param("anio");
-my $dia= $consulta->param("dia");
+my $anio= $consulta->param("ANIO");
+my $dia= $consulta->param("DIA");
 
-print $consulta->header( -charset=>'utf-8'),$consulta->start_html( -title=>'Informacion AWS', -style=>{-src=>'style.css'}),$consulta->end_html;
+print $consulta->header( -charset=>'utf-8'),$consulta->start_html( -title=>'Informacion AWS'),$consulta->end_html;
 
 #open(ARCHIVO, '>>','aws.txt');
 

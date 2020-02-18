@@ -63,10 +63,9 @@
 
 <body>
 	<FORM METHOD=GET ACTION="../cgi-bin/aws.cgi">
-		AÑO:
-		<input name="ANIO" size=20 maxlength=100>
-		DIA:
-		<input name="DIA">
+        Año:<input name="ANIO" size=10 maxlength=4> <!--maxlength es la cantidad max de caracteres que admite el campo-->
+        Día:<input name="DIA" size=10 maxlength=3>
+
 		<INPUT TYPE=submit value="Submit">
 		<INPUT TYPE=reset value="Reset">
 	</FORM>

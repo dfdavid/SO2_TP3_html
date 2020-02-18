@@ -1,0 +1,1 @@
+cmd_/home/sampaxx/PhpstormProjects/untitled/cgi-bin/modulos/mod.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/sampaxx/PhpstormProjects/untitled/cgi-bin/modulos/mod.ko /home/sampaxx/PhpstormProjects/untitled/cgi-bin/modulos/mod.o /home/sampaxx/PhpstormProjects/untitled/cgi-bin/modulos/mod.mod.o
