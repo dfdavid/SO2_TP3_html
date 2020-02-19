@@ -20,14 +20,14 @@ for( my $hora = 0; $hora <24; $hora ++){
     if ($valor <10){
         my $a = 0;
         my $c = $a.$valor;
-        my $salida_consulta  = qx(aws --no-sign-request s3 ls s3://noaa-goes16/ABI-L2-CMIPF/$anio/$dia/$c/ 2>&1 | grep C13);
+        my $salida_consulta  = qx(/usr/bin/aws --no-sign-request s3 ls s3://noaa-goes16/ABI-L2-CMIPF/$anio/$dia/$c/ 2>&1 | grep C13);
         my @lines = split /\n/,$salida_consulta;
         foreach my $line (@lines){
             print $consulta->b("$line </br>");
         }
         print ARCHIVO $salida_consulta;
     }else{
-        my $salida_consulta = qx(aws --no-sign-request s3 ls s3://noaa-goes16/ABI-L2-CMIPF/$anio/$dia/$valor/ 2>&1 | grep C13);
+        my $salida_consulta = qx(/usr/bin/aws --no-sign-request s3 ls s3://noaa-goes16/ABI-L2-CMIPF/$anio/$dia/$valor/ 2>&1 | grep C13);
         my @lines = split /\n/, $salida_consulta;
         foreach my $line (@lines){
             print $consulta->b("$line </br>");

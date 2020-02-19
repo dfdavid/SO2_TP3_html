@@ -1,4 +1,4 @@
-obj-m := mod.o
+obj-m := modulo_custom.o
 
 all:	
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
